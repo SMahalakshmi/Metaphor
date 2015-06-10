@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+<!--subsup-->
+<ole:wrap-tags math="tmpl[@templateType='29' and @variation='0' and child::sub]">  
+  <msubsup>
+    <ole:move tagname="{name(preceding-sibling::*[1])}" math="preceding-sibling::*[1]" mode="move"/>
+      <ole:do/>
+  </msubsup>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='21' and @variation='48' and child::sub]">  
+  <msubsup>
+    <mstyle mathsize="140%" displaystyle="true">      
+      <ole:move tagname="{name(line[4])}" math="line[4]/*" mode="move"/>      
+    </mstyle>
+    <ole:do/>
+  </msubsup>  
+</ole:wrap-tags>
+</ole:tux-mapping>

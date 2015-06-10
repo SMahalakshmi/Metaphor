@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?><root xmlns:mml="http://www.w3.org/1998/Math/MathML" exclude-result-prefixes="mml tnq xlink" version="0.1"><ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="mml ole xlink" version="0.1">
+<xsl:template match="*|@*|comment()|processing-instruction()|text()">
+  <xsl:copy>
+    <xsl:apply-templates select="*|@*|comment()|processing-instruction()|text()"/>
+  </xsl:copy>
+</xsl:template>
+
+<!--superscript-->
+<ole:wrap-tags math="tmpl[@templateType='28' and child::sub2 and @variation='0']">
+  <msup>          
+    <ole:move tagname="{name(preceding-sibling::*[1])}" math="preceding-sibling::*[1]" mode="move"/>
+      <ole:elements math="line[count(*)&gt;0]/*"/>      
+    </msup>
+</ole:wrap-tags>
+
+<!--superscript-->
+<ole:wrap-tags math="tmpl[@templateType='28' and @variation='0' and child::sub                     and not(preceding-sibling::tmpl[@templateType='27' and @variation='1' and child::sub])                     ]">
+    <msup>      
+      <ole:move tagname="{name(preceding-sibling::*[1])}" math="preceding-sibling::*[1]" mode="move"/>
+      <ole:elements math="line[count(*)&gt;0]/*"/>      
+    </msup>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='21' and @variation='32' and child::sub                     and not(preceding-sibling::tmpl[@templateType='27' and @variation='1' and child::sub])                     ]">
+    <msup>
+        <mstyle mathsize="140%" displaystyle="true">                
+            <ole:move tagname="{name(line[4][name(preceding-sibling::*[1])='sym']/*)}" math="line[4][name(preceding-sibling::*[1])='sym']/*" mode="move"/>          
+        </mstyle>        
+          <ole:elements math="line[3][count(*)&gt;0]/*"/>        
+    </msup>
+</ole:wrap-tags>
+</ole:tux-mapping><ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+<!--subsup-->
+<ole:wrap-tags math="tmpl[@templateType='29' and @variation='0' and child::sub]">  
+  <msubsup>
+    <ole:move tagname="{name(preceding-sibling::*[1])}" math="preceding-sibling::*[1]" mode="move"/>
+      <ole:do/>
+  </msubsup>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='21' and @variation='48' and child::sub]">  
+  <msubsup>
+    <mstyle mathsize="140%" displaystyle="true">      
+      <ole:move tagname="{name(line[4])}" math="line[4]/*" mode="move"/>      
+    </mstyle>
+    <ole:do/>
+  </msubsup>  
+</ole:wrap-tags>
+</ole:tux-mapping><ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+<ole:wrap-tags math="tmpl[@templateType='28' and @variation='1' and child::sub                     and (following-sibling::tmpl[@templateType='27' and @variation='0' and child::sub])                     ]">
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/>    
+        <mprescripts/>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>    
+      <msub>        
+          <ole:change tagname="mrow" math="following-sibling::tmpl[@templateType='27' and @variation='0' and child::sub]/child::*[3]" mode="move"/> 
+          <ole:element math="following-sibling::tmpl/line[count(*)&gt;0]/*"/>
+      </msub>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='27' and @variation='1' and child::sub                     and (following-sibling::tmpl[@templateType='28' and @variation='0' and child::sub])                     ]">  
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/>    
+        <mprescripts/>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>    
+      <msup>
+          <ole:change tagname="mrow" math="following-sibling::tmpl[@templateType='28' and @variation='0' and child::sub]/child::*[2]" mode="move"/> 
+            <ole:element math="following-sibling::tmpl/line[count(*)&gt;0]/*"/>         
+      </msup>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='28' and @variation='1' and child::sub                     and not(following-sibling::tmpl[@templateType='27' and @variation='0'])                     ]">  
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/>    
+        <mprescripts/>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='28' and @variation='1' and child::sub]                     and not(following-sibling::tmpl[@templateType='27' and @variation='0' and child::sub])                     ]">
+  <none/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='28' and @variation='1' and child::sub2]">  
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[2])}" math="following-sibling::*[2]" mode="move"/>    
+        <mprescripts/>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='28' and @variation='1' and child::sub2]]">
+  <none/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='27' and @variation='1' and child::sub2]">  
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[2])}" math="following-sibling::*[2]" mode="move"/>    
+        <mprescripts/>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='27' and @variation='1' and child::sub2]]">
+  <none/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='27' and @variation='1' and child::sub                     and not(following-sibling::tmpl[@templateType='28' and @variation='0' and child::sub])   ]">  
+  <mmultiscripts>
+    <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/>    
+    <mprescripts/>
+    <ole:elements math="line[count(*)&gt;0]/*"/>
+  </mmultiscripts>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='27' and @variation='1' and child::sub]]">
+  <none/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='29' and @variation='1' and child::sub]">  
+  <mmultiscripts>
+    <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/> 
+      <mprescripts/>
+      <ole:elements math="line[count(*)&gt;0]/*"/>
+  </mmultiscripts>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='29' and @variation='1' and child::sub]]">
+  <none/>
+</ole:wrap-tags>
+</ole:tux-mapping><ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+
+<!--subscript-->
+<ole:wrap-tags math="tmpl[@templateType='27' and child::sub and @variation='0'                     and not(preceding-sibling::tmpl[@templateType='28' and @variation='1'])                 ]">
+    <msub>      
+        <ole:move tagname="{name(preceding-sibling::*[1])}" math="preceding-sibling::*[1]" mode="move"/>       
+        <ole:elements math="line[count(*)&gt;0]/*"/>      
+    </msub>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='27' and child::sub2 and @variation='0']">
+  <msub>      
+      <ole:move tagname="{name(preceding-sibling::*[1])}" math="preceding-sibling::*[1]" mode="move"/>            
+      <ole:elements math="line[count(*)&gt;0]/*"/>      
+  </msub>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='21' and @variation='16' and child::sub                     and not(preceding-sibling::tmpl[@templateType='27' and @variation='1' and child::sub])                     ]">
+    <msub>
+        <mstyle mathsize="140%" displaystyle="true">                
+          <ole:move tagname="{name(line[4][name(preceding-sibling::*[1])='sym']/*)}" math="line[4][name(preceding-sibling::*[1])='sym']/*" mode="move"/>          
+        </mstyle>        
+        <ole:elements math="line[2][count(*)&gt;0]/*"/>        
+    </msub>
+</ole:wrap-tags>
+</ole:tux-mapping><ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+
+ <ole:remove-tags math="*[following-sibling::*[1][@templateType='29' and @variation='0']/sub] |                        *[following-sibling::*[1][@templateType='27' and @variation='0']/sub] |                       *[following-sibling::*[1][@templateType='27' and @variation='0']/sub2] |                         *[following-sibling::*[1][@templateType='28' and @variation='0']/sub] |                       *[following-sibling::*[1][@templateType='28' and @variation='0']/sub2] |                                           *[preceding-sibling::*[1][@templateType='28' and @variation='1']/sub] |                        *[preceding-sibling::*[1][@templateType='27' and @variation='1']/sub] |                        *[preceding-sibling::*[1][@templateType='29' and @variation='1']/sub] |                        *[preceding-sibling::*[2][@templateType='28' and @variation='1']/sub2] |                        *[preceding-sibling::*[2][@templateType='27' and @variation='1']/sub2] |                        *[following-sibling::*[3][matches(., '(∑|∫)') and parent::tmpl[matches(@templateType,'16|15') and not(@variation=5)] and name(preceding-sibling::*[1])='sym']] |                        *[following-sibling::*[2][matches(., '(∑|∫)') and parent::tmpl[matches(@templateType,'16|15') and not(@variation=5)] and name(preceding-sibling::*[1])='sym']] |                        *[following-sibling::*[3][parent::tmpl[matches(@templateType,'19')  and matches(@variation, '80')] and name(preceding-sibling::*[1])='sym']] |                        *[following-sibling::*[2][parent::tmpl[matches(@templateType,'19') and matches(@variation, '80')] and name(preceding-sibling::*[1])='sym']] |                        *[parent::tmpl[matches(@templateType,'16|15') and matches(@variation, '112|113|1')] and name(preceding-sibling::*[1])='sym'] |                       *[parent::tmpl[matches(@templateType,'15') and matches(@variation, '5')] and name(preceding-sibling::*[1])='sym'] |                       *[parent::tmpl[matches(@templateType,'17') and matches(@variation, '0')] and name(preceding-sibling::*[1])='sym'] |                       *[parent::tmpl[matches(@templateType,'19') and matches(@variation, '80')] and name(preceding-sibling::*[1])='sym'] |                                             *[preceding-sibling::tmpl[@templateType='28' and @variation='1']] |                                              *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '21' and @variation = '32' and child::sub]] |                       *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '21' and @variation = '16' and child::sub]] |                       *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '21' and @variation = '48' and child::sub]] |                       *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '22' and @variation = '96' and child::sub]] |                       *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '22' and @variation = '80' and child::sub]] |                                             *[preceding-sibling::tmpl[@templateType='27' and @variation='1']] |                       sub | sym |                       *[parent::tmpl[@templateType = '1' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] |                       *[parent::tmpl[@templateType = '3' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] |                       *[parent::tmpl[@templateType = '2' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] |                       *[parent::tmpl[@templateType = '3' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] |                        *[parent::tmpl[@templateType = '4' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] |                       *[parent::tmpl[@templateType = '5' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']]                       "/>                      
+</ole:tux-mapping><ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+
+<!--brackets-->
+<ole:wrap-tags math="tmpl[@templateType='0' and @variation='3'                           or (@templateType='1' and @variation='3')                                                     or (@templateType='2' and @variation='3')                           or (@templateType='3' and @variation='3')                           or (@templateType='4' and @variation='3')                           or (@templateType='5' and @variation='3')]">  
+  <mrow>   
+      <ole:move tagname="{name(child::*[2])}" math="child::*[2][name()='mo'][preceding-sibling::*[1][name()='line']]" mode="move"/>         
+    <ole:do/>
+  </mrow>  
+</ole:wrap-tags>
+
+
+</ole:tux-mapping><ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+
+<!--mfrac-->
+<ole:wrap-tags math="tmpl[@templateType='11' and @variation='0']">  
+  <mfrac>      
+    <ole:element math="line[1]/*"/>
+    <ole:element math="line[2]/*"/>      
+  </mfrac>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='11' and @variation='1']">   
+    <mstyle scriptlevel="+1">
+      <mfrac>        
+        <ole:element math="line[1]/*"/>
+        <ole:element math="line[2]/*"/>        
+      </mfrac>
+    </mstyle>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='11' and @variation='2']">   
+  <mstyle scriptlevel="+1">
+    <mfrac bevelled="true">
+      <ole:element math="line[1]/*"/>
+      <ole:element math="line[2]/*"/>        
+    </mfrac>
+  </mstyle>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='11' and @variation='3']">
+  <mfrac bevelled="true">    
+    <ole:element math="line[1]/*"/>
+    <ole:element math="line[2]/*"/>    
+  </mfrac>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='11' and @variation='6']">        
+  <ole:element math="line[1]/*"/>    
+  <mo>/</mo>    
+  <ole:element math="line[2]/*"/>      
+</ole:wrap-tags>
+</ole:tux-mapping><ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+
+<ole:wrap-tags math="tmpl[@templateType='22' and @variation='96' and child::sub]">  
+  <mover>
+    <mstyle mathsize="140%" displaystyle="true">      
+      <ole:move tagname="{name(line[4])}" math="line[4]/*" mode="move"/>      
+    </mstyle>
+    <ole:do/>
+  </mover>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='22' and @variation='80' and child::sub]">  
+  <munder>
+    <mstyle mathsize="140%" displaystyle="true">      
+      <ole:move tagname="{name(line[4])}" math="line[4]/*" mode="move"/>      
+    </mstyle>
+    <ole:do/>
+  </munder>  
+</ole:wrap-tags>
+
+<!--munderover-->
+<ole:wrap-tags math="tmpl[@templateType = '23' and @variation = '48']">  
+  <munderover>
+    <ole:do/>      
+  </munderover>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '(16)') and matches(@variation, '(112)')][descendant::*[matches(., '(∑|∫)')] and descendant::sym]">
+  <munderover>
+    <ole:elements math="child::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym']"/>    
+      <ole:elements math="*[following-sibling::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=3]/*"/>
+      <ole:elements math="*[following-sibling::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=2]/*"/>    
+  </munderover>
+  <ole:do/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '(15)') and matches(@variation, '(113)')][descendant::*[matches(., '(∑|∫)')] and descendant::sym]">  
+    <mstyle displaystyle="true">
+      <munderover>
+        <ole:elements math="child::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym']"/><ole:elements math="*[following-sibling::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=3]/*"/>          
+        <ole:elements math="*[following-sibling::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=2]/*"/>          
+      </munderover>
+      <ole:do/>
+   </mstyle>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '(15)') and matches(@variation, '(5)')][descendant::*[matches(., '(∑|∫)')] and descendant::sym]">
+    <mstyle displaystyle="true">      
+        <ole:elements math="child::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym']"/>
+        <ole:do/>
+   </mstyle>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType = '22' and @variation = '112' and descendant::sym]">  
+    <munderover>
+      <mstyle mathsize="140%" displaystyle="true">        
+          <ole:element math="child::*[name(preceding-sibling::*[1])='sym']"/>        
+      </mstyle>    
+        <ole:element math="*[following-sibling::*[name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=3]/*"/>
+        <ole:element math="*[following-sibling::*[name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=2]/*"/>    
+    </munderover>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '(15|17)') and matches(@variation, '^(1|0)$') and descendant::sym]">  
+    <ole:elements math="child::*[name(preceding-sibling::*[1])='sym']"/>
+    <ole:do/>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '32') and matches(@variation, '0')]">
+  <mover accent="true">
+      <ole:do/>
+  </mover>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='23' and @variation='16']">  
+  <munder>
+    <ole:do/>      
+  </munder>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '19') and matches(@variation, '^(80)$') and descendant::sym]">
+  <munder>
+    <ole:elements math="child::*[name(preceding-sibling::*[1])='sym']"/>    
+    <ole:elements math="*[following-sibling::*[name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=3]/*"/>
+    <ole:elements math="*[following-sibling::*[name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=2]/*"/>    
+  </munder>
+  <ole:do/>
+</ole:wrap-tags>
+</ole:tux-mapping><ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+<ole:wrap-tags math="tmpl[@templateType='10' and @variation='0']">        
+  <msqrt>
+    <ole:do/>
+  </msqrt>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='10' and @variation='1']">        
+  <msqrt>
+    <ole:do/>
+  </msqrt>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="/">
+  <math>
+      <ole:do/>
+  </math>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)&gt;0]">  
+  <mrow>
+    <ole:do/>  
+  </mrow>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0                         and not(parent::tmpl[@templateType = '28' and @variation='1'])                       and not(parent::tmpl[@templateType='27' and @variation='1' and child::sub])                       and not(parent::tmpl[@templateType='27' and @variation='1' and child::sub2])   ]">      
+</ole:wrap-tags>  
+  
+<ole:wrap-tags math="sub2">
+    <ole:do/>
+</ole:wrap-tags>
+
+</ole:tux-mapping></root>

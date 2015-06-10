@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+<ole:wrap-tags math="tmpl[@templateType='28' and @variation='1' and child::sub
+                    and (following-sibling::tmpl[@templateType='27' and @variation='0' and child::sub])
+                    ]">
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/>    
+        <mprescripts/>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>    
+      <msub>        
+          <ole:change tagname="mrow" math="following-sibling::tmpl[@templateType='27' and @variation='0' and child::sub]/child::*[3]" mode="move"/> 
+          <ole:element math="following-sibling::tmpl/line[count(*)>0]/*"/>
+      </msub>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='27' and @variation='1' and child::sub
+                    and (following-sibling::tmpl[@templateType='28' and @variation='0' and child::sub])
+                    ]">  
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/>    
+        <mprescripts/>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>    
+      <msup>
+          <ole:change tagname="mrow" math="following-sibling::tmpl[@templateType='28' and @variation='0' and child::sub]/child::*[2]" mode="move"/> 
+            <ole:element math="following-sibling::tmpl/line[count(*)>0]/*"/>         
+      </msup>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='28' and @variation='1' and child::sub
+                    and not(following-sibling::tmpl[@templateType='27' and @variation='0'])
+                    ]">  
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/>    
+        <mprescripts/>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='28' and @variation='1' and child::sub]
+                    and not(following-sibling::tmpl[@templateType='27' and @variation='0' and child::sub])
+                    ]">
+  <none/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='28' and @variation='1' and child::sub2]">  
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[2])}" math="following-sibling::*[2]" mode="move"/>    
+        <mprescripts></mprescripts>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='28' and @variation='1' and child::sub2]]">
+  <none/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='27' and @variation='1' and child::sub2]">  
+    <mmultiscripts>
+      <ole:move tagname="{name(following-sibling::*[2])}" math="following-sibling::*[2]" mode="move"/>    
+        <mprescripts/>
+        <ole:elements math="line[count(*)&gt;0]/*"/>
+    </mmultiscripts>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='27' and @variation='1' and child::sub2]]">
+  <none/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='27' and @variation='1' and child::sub
+                    and not(following-sibling::tmpl[@templateType='28' and @variation='0' and child::sub])
+  ]">  
+  <mmultiscripts>
+    <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/>    
+    <mprescripts/>
+    <ole:elements math="line[count(*)&gt;0]/*"/>
+  </mmultiscripts>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='27' and @variation='1' and child::sub]]">
+  <none/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='29' and @variation='1' and child::sub]">  
+  <mmultiscripts>
+    <ole:move tagname="{name(following-sibling::*[1])}" math="following-sibling::*[1]" mode="move"/> 
+      <mprescripts/>
+      <ole:elements math="line[count(*)&gt;0]/*"/>
+  </mmultiscripts>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="line[count(*)=0][parent::tmpl[@templateType='29' and @variation='1' and child::sub]]">
+  <none/>
+</ole:wrap-tags>
+</ole:tux-mapping>

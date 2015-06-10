@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+
+<ole:wrap-tags math="tmpl[@templateType='22' and @variation='96' and child::sub]">  
+  <mover>
+    <mstyle mathsize="140%" displaystyle="true">      
+      <ole:move tagname="{name(line[4])}" math="line[4]/*" mode="move"/>      
+    </mstyle>
+    <ole:do/>
+  </mover>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='22' and @variation='80' and child::sub]">  
+  <munder>
+    <mstyle mathsize="140%" displaystyle="true">      
+      <ole:move tagname="{name(line[4])}" math="line[4]/*" mode="move"/>      
+    </mstyle>
+    <ole:do/>
+  </munder>  
+</ole:wrap-tags>
+
+<!--munderover-->
+<ole:wrap-tags math="tmpl[@templateType = '23' and @variation = '48']">  
+  <munderover>
+    <ole:do/>      
+  </munderover>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '(16)') and matches(@variation, '(112)')][descendant::*[matches(., '(∑|∫)')] and descendant::sym]">
+  <munderover>
+    <ole:elements math="child::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym']"/>    
+      <ole:elements math="*[following-sibling::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=3]/*"/>
+      <ole:elements math="*[following-sibling::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=2]/*"/>    
+  </munderover>
+  <ole:do/>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '(15)') and matches(@variation, '(113)')][descendant::*[matches(., '(∑|∫)')] and descendant::sym]">  
+    <mstyle displaystyle="true">
+      <munderover>
+        <ole:elements math="child::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym']"/><ole:elements math="*[following-sibling::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=3]/*"/>          
+        <ole:elements math="*[following-sibling::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=2]/*"/>          
+      </munderover>
+      <ole:do/>
+   </mstyle>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '(15)') and matches(@variation, '(5)')][descendant::*[matches(., '(∑|∫)')] and descendant::sym]">
+    <mstyle displaystyle="true">      
+        <ole:elements math="child::*[matches(., '(∑|∫)')][name(preceding-sibling::*[1])='sym']"/>
+        <ole:do/>
+   </mstyle>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType = '22' and @variation = '112' and descendant::sym]">  
+    <munderover>
+      <mstyle mathsize="140%" displaystyle="true">        
+          <ole:element math="child::*[name(preceding-sibling::*[1])='sym']"/>        
+      </mstyle>    
+        <ole:element math="*[following-sibling::*[name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=3]/*"/>
+        <ole:element math="*[following-sibling::*[name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=2]/*"/>    
+    </munderover>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '(15|17)') and matches(@variation, '^(1|0)$') and descendant::sym]">  
+    <ole:elements math="child::*[name(preceding-sibling::*[1])='sym']"/>
+    <ole:do/>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '32') and matches(@variation, '0')]">
+  <mover accent="true">
+      <ole:do/>
+  </mover>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='23' and @variation='16']">  
+  <munder>
+    <ole:do/>      
+  </munder>  
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[matches(@templateType, '19') and matches(@variation, '^(80)$') and descendant::sym]">
+  <munder>
+    <ole:elements math="child::*[name(preceding-sibling::*[1])='sym']"/>    
+    <ole:elements math="*[following-sibling::*[name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=3]/*"/>
+    <ole:elements math="*[following-sibling::*[name(preceding-sibling::*[1])='sym'] and count(following-sibling::*)=2]/*"/>    
+  </munder>
+  <ole:do/>
+</ole:wrap-tags>
+</ole:tux-mapping>

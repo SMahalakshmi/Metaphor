@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+
+<!--brackets-->
+<ole:wrap-tags math="tmpl[@templateType='0' and @variation='3'
+                          or (@templateType='1' and @variation='3')                          
+                          or (@templateType='2' and @variation='3')
+                          or (@templateType='3' and @variation='3')
+                          or (@templateType='4' and @variation='3')
+                          or (@templateType='5' and @variation='3')]">  
+  <mrow>   
+      <ole:move tagname="{name(child::*[2])}" math="child::*[2][name()='mo'][preceding-sibling::*[1][name()='line']]" mode="move"/>         
+    <ole:do/>
+  </mrow>  
+</ole:wrap-tags>
+
+
+</ole:tux-mapping>

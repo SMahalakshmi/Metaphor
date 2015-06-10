@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" exclude-result-prefixes="mml ole xlink" version="0.1">
+
+
+
+ <ole:remove-tags math="*[following-sibling::*[1][@templateType='29' and @variation='0']/sub] | 
+                      *[following-sibling::*[1][@templateType='27' and @variation='0']/sub] |
+                      *[following-sibling::*[1][@templateType='27' and @variation='0']/sub2] |  
+                      *[following-sibling::*[1][@templateType='28' and @variation='0']/sub] |
+                      *[following-sibling::*[1][@templateType='28' and @variation='0']/sub2] |                    
+                      *[preceding-sibling::*[1][@templateType='28' and @variation='1']/sub] | 
+                      *[preceding-sibling::*[1][@templateType='27' and @variation='1']/sub] | 
+                      *[preceding-sibling::*[1][@templateType='29' and @variation='1']/sub] | 
+                      *[preceding-sibling::*[2][@templateType='28' and @variation='1']/sub2] | 
+                      *[preceding-sibling::*[2][@templateType='27' and @variation='1']/sub2] | 
+                      *[following-sibling::*[3][matches(., '(∑|∫)') and parent::tmpl[matches(@templateType,'16|15') and not(@variation=5)] and name(preceding-sibling::*[1])='sym']] | 
+                      *[following-sibling::*[2][matches(., '(∑|∫)') and parent::tmpl[matches(@templateType,'16|15') and not(@variation=5)] and name(preceding-sibling::*[1])='sym']] | 
+                      *[following-sibling::*[3][parent::tmpl[matches(@templateType,'19')  and matches(@variation, '80')] and name(preceding-sibling::*[1])='sym']] | 
+                      *[following-sibling::*[2][parent::tmpl[matches(@templateType,'19') and matches(@variation, '80')] and name(preceding-sibling::*[1])='sym']] | 
+                      *[parent::tmpl[matches(@templateType,'16|15') and matches(@variation, '112|113|1')] and name(preceding-sibling::*[1])='sym'] |
+                      *[parent::tmpl[matches(@templateType,'15') and matches(@variation, '5')] and name(preceding-sibling::*[1])='sym'] |
+                      *[parent::tmpl[matches(@templateType,'17') and matches(@variation, '0')] and name(preceding-sibling::*[1])='sym'] |
+                      *[parent::tmpl[matches(@templateType,'19') and matches(@variation, '80')] and name(preceding-sibling::*[1])='sym'] |                      
+                      *[preceding-sibling::tmpl[@templateType='28' and @variation='1']] |
+                      
+                      *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '21' and @variation = '32' and child::sub]] |
+                      *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '21' and @variation = '16' and child::sub]] |
+                      *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '21' and @variation = '48' and child::sub]] |
+                      *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '22' and @variation = '96' and child::sub]] |
+                      *[name(preceding-sibling::*[1])='sym' and parent::tmpl[@templateType = '22' and @variation = '80' and child::sub]] |                      
+                      *[preceding-sibling::tmpl[@templateType='27' and @variation='1']] |
+                      sub | sym |
+                      *[parent::tmpl[@templateType = '1' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] |
+                      *[parent::tmpl[@templateType = '3' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] |
+                      *[parent::tmpl[@templateType = '2' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] |
+                      *[parent::tmpl[@templateType = '3' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] | 
+                      *[parent::tmpl[@templateType = '4' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']] |
+                      *[parent::tmpl[@templateType = '5' and @variation = '3'] and name()='mo' and preceding-sibling::*[1][name()='line']]
+                      "
+                      />                      
+</ole:tux-mapping>

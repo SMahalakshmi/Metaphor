@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ole:tux-mapping xmlns:ole="http://www.ole.co.in/TUX" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" exclude-result-prefixes="mml ole xlink" version="0.1">
+<xsl:template match="*|@*|comment()|processing-instruction()|text()">
+  <xsl:copy>
+    <xsl:apply-templates select="*|@*|comment()|processing-instruction()|text()" />
+  </xsl:copy>
+</xsl:template>
+
+<!--superscript-->
+<ole:wrap-tags math="tmpl[@templateType='28' and child::sub2 and @variation='0']">
+  <msup>          
+    <ole:move tagname="{name(preceding-sibling::*[1])}" math="preceding-sibling::*[1]" mode="move"/>
+      <ole:elements math="line[count(*)&gt;0]/*"/>      
+    </msup>
+</ole:wrap-tags>
+
+<!--superscript-->
+<ole:wrap-tags math="tmpl[@templateType='28' and @variation='0' and child::sub
+                    and not(preceding-sibling::tmpl[@templateType='27' and @variation='1' and child::sub])
+                    ]">
+    <msup>      
+      <ole:move tagname="{name(preceding-sibling::*[1])}" math="preceding-sibling::*[1]" mode="move"/>
+      <ole:elements math="line[count(*)&gt;0]/*"/>      
+    </msup>
+</ole:wrap-tags>
+
+<ole:wrap-tags math="tmpl[@templateType='21' and @variation='32' and child::sub
+                    and not(preceding-sibling::tmpl[@templateType='27' and @variation='1' and child::sub])
+                    ]">
+    <msup>
+        <mstyle mathsize="140%" displaystyle="true">                
+            <ole:move tagname="{name(line[4][name(preceding-sibling::*[1])='sym']/*)}" math="line[4][name(preceding-sibling::*[1])='sym']/*" mode="move"/>          
+        </mstyle>        
+          <ole:elements math="line[3][count(*)&gt;0]/*"/>        
+    </msup>
+</ole:wrap-tags>
+</ole:tux-mapping>
