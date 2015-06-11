@@ -10,7 +10,12 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     exclude-result-prefixes="ole xslt xlink saxon xsd xs"
     extension-element-prefixes="File">
+  <xsl:param name="app_path"/>
 
+  <xsl:variable name="base_uri" select="base-uri($app_path)"/>
+
+   <xsl:param name="path" select="'/home/maha/Projects/mathtype2mml/math-typeole-to-mathml/xsl/xml'" as="xs:string"/>
+    
 
   <xsl:template match="*|@*|comment()|processing-instruction()|text()">
     <xsl:copy>
@@ -18,8 +23,7 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="/">
-    <xsl:variable name="path"><xsl:value-of select="'/home/maha/Projects/mathtype2mml/math-typeole-to-mathml/xsl/xml/'"/></xsl:variable>   
+  <xsl:template match="/">    
     <xsl:call-template name="buildFileList">
       <xsl:with-param name="dir" select="$path"/>
     </xsl:call-template>
@@ -28,7 +32,7 @@
   <xsl:template name="buildFileList">
     <xsl:param name="dir" as="xs:string"/>
     <xsl:variable name="fileObj" select="File:new($dir)"/>
-    <xsl:variable name="files" select="File:list($fileObj)" as="xs:string+"/>
+    <xsl:variable name="files" select="File:list($fileObj)" as="xs:string*"/>
     <root xmlns:ole="http://www.ole.co.in/TUX" 
 	  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 	  xmlns:xslt="http://www.w3.org/1999/XSL/Transform/" 
@@ -39,13 +43,22 @@
       <xsl:for-each select="$files">
 	<xsl:variable name="file" select="File:new(.)"/>
 	<xsl:if test="not(File:isDirectory($file))">
-	  <xsl:variable name="xml_path"><xsl:value-of select="concat($dir, $file)"/></xsl:variable>
-	  <xsl:variable name="xml_document" select="document($xml_path)"/>
-	  <xsl:if test="string-length($file) > 0">
-	    <xsl:copy-of select="document($xml_document//*)"/>
-	  </xsl:if>
+	  <xsl:variable name="xml_path"><xsl:value-of select="ole:get_xml_path($file, $dir)"/></xsl:variable>
+	  <xsl:variable name="xml_doc" select="document($xml_path)"/>
+	  <xsl:copy-of  select="$xml_doc"/>
 	</xsl:if>      
       </xsl:for-each>
     </root>    
   </xsl:template>
+
+   <xsl:function name="ole:get_xml_path">
+     <xsl:param name="file"/>
+     <xsl:param name="dir"/>
+     <xsl:variable name="filename" select="File:getName($file)"/>
+     <xsl:if test="ends-with($filename,'.xml')">
+       <xsl:message><xsl:value-of select="$filename"/></xsl:message>
+       <xsl:variable name="xml_path"><xsl:value-of select="concat($dir, '/', $file)"/></xsl:variable>
+       <xsl:value-of select="$xml_path"/>
+     </xsl:if>
+   </xsl:function>
 </xsl:stylesheet>
