@@ -19,7 +19,6 @@
 
   <!-- IdentityTransform -->
  
-
   <xsl:template match="*|@*|comment()|processing-instruction()|text()">
     <xsl:copy>
       <xsl:apply-templates select="*|@*|comment()|processing-instruction()|text()" />
@@ -32,6 +31,11 @@
     </xsl:copy>
   </xsl:template>
 
+
+  <xsl:template match="ole:tux-mapping">   
+    <xsl:apply-templates/>		
+  </xsl:template>
+  
   <xsl:template match="ole:group//ole:do">
     <xslt:for-each select="current-group()">	    
       <xslt:choose>
@@ -87,11 +91,6 @@
     </xslt:if>
   </xsl:template>
 
-  <xsl:template match="ole:tux-mapping">   
-    <xsl:apply-templates/>		
-  </xsl:template>
-  
-
   <xsl:template match="root">
     <xsl:text disable-output-escaping="yes">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:xslt="http://www.w3.org/1999/XSL/Transform/"
@@ -116,7 +115,7 @@
       <xsl:apply-templates mode="move"/>
     </xslt:template>
   </xsl:template>
-  
+
   <xsl:template match="ole:wrap-tags[@math and @priority]">
     <xslt:template match="{@math}" priority="{@priority}">
       <xsl:apply-templates/>
